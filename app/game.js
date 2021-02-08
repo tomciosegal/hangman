@@ -229,32 +229,45 @@ class Game {
     this.outputWrapper = document.getElementById("output")
     const {name, category, level} = this.quotes[Math.floor(Math.random() * this.quotes.length)]
     this.categoryWrapper.innerHTML = category;
-    this.quote = new Quote();
+    this.quote = new Quote(name);
 
     }
 
     guess(letter){
+
+        
         new Audio('/assets/sounds/clicked_button.wav').play()
-       
+        this.quote.guess(letter);
+        this.drawQuote()
+         
     }
 
+
+    
     drawLetters(){
         for(let i = 0; i < 26; i++){
             const label = (i + 10).toString(36)
             const button = document.createElement('button');
-            this.lettersWrapper.appendChild(button).textContent = label;
+            this.lettersWrapper.appendChild(button).textContent = label.toUpperCase();
             button.addEventListener('click', () => this.guess(label))
+            
             
             
         }
     }
 
+    drawQuote(){
+        const content = this.quote.getContent();
+        this.wordWrapper.innerHTML = content.toUpperCase();
+    }
+
     start() {
         this.drawLetters();
-        const content = this.quote.getContent();
-        this.wordWrapper.innerHTML = content;
+        this.drawQuote();
     }
 }
+
+
 
 
 //<iframe width="1180" height="664" src="https://www.youtube.com/embed/Sk8QzckJvUI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
