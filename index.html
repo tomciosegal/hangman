@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="assets/style.css" >
 </head>
 <body>
-    <section id="hangman">
-        <label for="cars">Choose level:</label>
-            <select name="cars" id="cars">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
+    <div>
+        <label for="level">Choose level:</label>
+        <select name="level" id="level">
+            <option value="">Choose level</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
 
+    <section id="hangman">
         <div id="output">
             <div class="step">
                 <img src="images/1.png" alt="">
@@ -43,6 +46,9 @@
         </div>
         <div id="word"></div>
         <div id="category"></div>
+        <div id="alert" class="hidden">
+            <button id="play">Play Again</button>
+        </div>
         <div id="letters"></div>
     </section>
     <script src="app/game.js" type="module"></script>
