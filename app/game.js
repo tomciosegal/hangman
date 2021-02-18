@@ -227,6 +227,7 @@ class Quote{
         this.alertDiv = document.querySelector('#alert')
         this.playAgain = document.querySelector('#play');
         this.playAgain.addEventListener('click', () => location.reload())
+        this.lettersWrapper = document.getElementById("letters")
     }
 
     checkLetter = (e) =>{
@@ -257,12 +258,13 @@ class Quote{
                     }
           
                  }, popTime)
+                 
             }
          }
          
          if(foundLetter == false){
              if(this.images[this.imageIndex - 1] != undefined){
-                 this.images[this.imageIndex - 1].style.opacity = 0.1;
+                 this.images[this.imageIndex - 1].style.opacity = 0.1
              }
            
              this.images[this.imageIndex].style.opacity = 1;
@@ -272,9 +274,10 @@ class Quote{
              if(this.images[this.imageIndex] == undefined){
                 this.alertDiv.prepend('You Lost');
                 this.alertDiv.classList.add('lose')
-
+                this.lettersWrapper.style.display = 'none'
                 this.alertDiv.classList.toggle('hidden')
                 new Audio('assets/sounds/loose_game.wav').play()
+                
              }
          }
     }
@@ -331,10 +334,7 @@ class Hangman{
          }
      }
 
-     startGame(){
-       
-        // 
-     }
+
  }
 
  
