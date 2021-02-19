@@ -298,9 +298,10 @@ class Hangman{
      }
 
      selectLevel = (e) =>{
-        const selectedQuote = this.quotes.filter(val => val.level == e.target.value)
+        const selectedQuote = this.quotes.filter(val => val.level == e.target.value);
 
-        const {name, category, level} = selectedQuote[Math.floor(Math.random() * selectedQuote.length)]
+        const {name, category, level} = selectedQuote[ Math.floor(Math.random() * selectedQuote.length)];
+
         this.categoryWrapper.innerHTML = category;
         this.quote = new Quote(name);
         this.drawLetters();
@@ -309,6 +310,7 @@ class Hangman{
         const entireSection = document.querySelector('#hangman')
         entireSection.style.opacity = '1'
         entireSection.style.pointerEvents = 'auto'
+        new Audio('assets/sounds/wanna_play_game.mp3').play();
         
      }
 
@@ -340,7 +342,6 @@ class Hangman{
  
 
 const hangman = new Hangman();
-hangman.startGame();
 
 
  
